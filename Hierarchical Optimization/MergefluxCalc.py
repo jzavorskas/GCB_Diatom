@@ -1,12 +1,16 @@
 """
 _____________________________________________________________
-Function: Flux Calculation (fluxCalc) function
+Function: Merged Flux Calculation (MergefluxCalc) function
 
   Inputs: 
   
         Inputs : a dictionary containing datetime information for light calculation
                  and information about previous flux calculations
+        y : Current ODE solver y values (biomass, nutrients, etc.)
+        T : temperature (degrees Celsius)
         ML : COBRA model structure for Thalassiosira pseudonana containing all current constraints
+        IYSi : linear interpolator for diatom-cyanobacteria carbon transfer assuming abundant silicic acid
+        INSi : linear interpolator for diatom-cyanobacteria carbon transfer assuming limited silicic acid
 
   Outputs: 
   

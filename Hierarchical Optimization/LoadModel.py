@@ -10,13 +10,11 @@ Function: Diatom Model Loading (LoadModel) function
   
         ML : COBRA model for Thalassiosira pseudonana, with default objective and constraints
 
-  As addressed in the text, the optimal cost of the LP is unique but the other fluxes in the solution 
-  may not be. As such, to guarantee unique solutions for all fluxes used to update the ODEs, one must
-  perform a hierarchical optimization. Specifically, all fluxes used in the ODE should be made the objective
-  function one-by-one, while adding the previous optimal fluxes as constraints on the problem. In the case 
-  of this function, once biomass is calculated, the optimal value would be fixed for all subsequent
-  optimizations.
-  
+  This function loads the diatom FBA model, and adds in reactions specific to our application.
+  Specifically, it inserts reactions that allow the diatom to store fixed carbon, and then
+  retrieve it from storage and convert it to a usable form. New metabolites are also created in
+  tandem with these new reactions. Finally, default bounds for common reactions in the system
+  are set before returning the model.
 """
 
 def LoadModel(Inputs): 
